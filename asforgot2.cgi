@@ -13,6 +13,8 @@ require "ashtmlutil.pl";
 require "asinstallation.pl";
 require "asemail.pl";
 
+use Digest::SHA;
+
 PrintHTTPHeader();
 
 $title = "The Assayer: E-mail Login Information";
@@ -46,7 +48,7 @@ if (! $bogus) {
 }
 
 if (! $bogus) {
-  $selectstmt = "SELECT login,pwd FROM users WHERE email LIKE '$email'";
+  $selectstmt = "SELECT login FROM users WHERE email LIKE '$email'";
   $sth = $dbh->prepare($selectstmt) or $bogus=4;
 }
 if (! $bogus) {
@@ -58,6 +60,16 @@ if (! $bogus) {
     $bogus = "No user found with e-mail address $email.";
   }
 }
+
+$login = $row[0];
+$pwd = int (10000. * rand) . "-" . int (10000. * rand);
+$special_sauce = int (10000. * rand) . "-" . int (10000. * rand);
+$hash = Digest::SHA::sha1_base64($pwd."theassayer");
+
+$stmt = "update users set pwd_hash = '$hash' where login ='$login'";
+$sth2 = $dbh->prepare($stmt);
+$sth2->execute();
+
 if (! $bogus) {
    
   my $result = 
@@ -67,8 +79,8 @@ Here is the reminder you requested of your Assayer
 login name and password. To log in, go to
 	   http://theassayer.org
 	
-Login name: $row[0]
-Password:   $row[1]
+Login name: $login
+Password:   $pwd
 __BODY__
 						 );
   if ($result eq '') {
@@ -91,4 +103,3 @@ if ($connected) {
 
 
 &PrintFooterHTML($homepath);
-

@@ -15,6 +15,9 @@ require "asgetmethod.pl";
 require "asinstallation.pl";
 require "asuinfo.pl";
 
+use Digest::SHA;
+
+
 use CGI;
 use DBI;
 
@@ -195,5 +198,3 @@ if ($connected) {
 }
 
 PrintFooterHTML($homepath);
-
-

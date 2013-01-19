@@ -13,6 +13,8 @@ require "ashtmlutil.pl";
 require "asinstallation.pl";
 require "asuinfo.pl";
 
+use Digest::SHA;
+
 PrintHTTPHeader();
 
 $title = "The Assayer: Change User Information";
@@ -81,7 +83,10 @@ if (! $bogus) {
         $read_stuff = $read_stuff . "," . $uinfo_key;
       }
   }
-  $selectstmt = "SELECT " . $read_stuff . " FROM users WHERE login LIKE '$login' AND pwd LIKE '$pwd'";
+  $hash = Digest::SHA::sha1_base64($pwd."theassayer");
+  #print "<p>read_stuff=$read_stuff, pwd=$pwd, hash=$hash</p>";
+  $selectstmt = "SELECT " . $read_stuff . " FROM users WHERE login LIKE '$login' AND pwd_hash = '$hash'";
+  #print "<p>$selectstmt</p>";
   $sth = $dbh->prepare($selectstmt) or $bogus=5;
 }
 if (! $bogus) {
@@ -104,7 +109,8 @@ if (! $bogus) {
 # Change pwd
 #################################################################
 if ((! $bogus) && $newpwd1 && $newpwd2) {
-  $updatestmt = "UPDATE users SET pwd = '$newpwd1' WHERE login LIKE '$login' AND pwd LIKE '$pwd'";
+  $new_hash = Digest::SHA::sha1_base64($newpwd1."theassayer");
+  $updatestmt = "UPDATE users SET pwd_hash = '$new_hash' WHERE login LIKE '$login' AND pwd_hash LIKE '$hash'";
   $sth = $dbh->prepare($updatestmt) or $bogus="Internal error (1)";
 }
 if ((! $bogus) && $newpwd1 && $newpwd2) {
@@ -115,6 +121,7 @@ if ((! $bogus) && $newpwd1 && $newpwd2) {
 	print "<h1>Password Changed</h1>\n";
 	print "Your password has been changed.<p>";
 	$pwd = $newpwd1;
+        $hash = $new_hash;
 }
 #################################################################
 # Change info
@@ -131,7 +138,7 @@ if (! $bogus && $do_what==2) {
 	      $n = remove_all_html($n);
 	    }
 	    $n = $dbh->quote($n);
-	    $stmt = "UPDATE users SET $uinfo_key = $n WHERE login LIKE '$login' AND pwd LIKE '$pwd'";
+	    $stmt = "UPDATE users SET $uinfo_key = $n WHERE login LIKE '$login' AND pwd_hash = '$hash'";
 	    $sth = $dbh->prepare($stmt) or $bogus="Internal error (5)";
 	    $sth->execute() or $bogus="Error writing to database (6)";
 	    $what = $uinfo_name{$uinfo_key};
@@ -144,7 +151,7 @@ if (! $bogus && $do_what==2) {
 # Read info from database for the second time
 #################################################################
 if (! $bogus) {
-  $selectstmt = "SELECT " . $read_stuff . " FROM users WHERE login LIKE '$login' AND pwd LIKE '$pwd'";
+  $selectstmt = "SELECT " . $read_stuff . " FROM users WHERE login LIKE '$login' AND pwd_hash LIKE '$hash'";
   $sth = $dbh->prepare($selectstmt) or $bogus=5;
 }
 if (! $bogus) {
@@ -201,7 +208,7 @@ if (! $bogus) {
 }
 
 if ($bogus) {
-	print "Sorry, error $bogus occurred.<p>\n ";
+	print "Sorry, error $bogus occurred, ",($sth->errstr),".<p>\n ";
 }
 if ($connected) {
   if (ref $sth) {$sth->finish}

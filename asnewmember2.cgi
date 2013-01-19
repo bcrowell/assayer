@@ -14,6 +14,8 @@ require "asinstallation.pl";
 require "aslog.pl";
 require "asemail.pl";
 
+use Digest::SHA;
+
 PrintHTTPHeader();
 
 $title = "The Assayer: New Member";
@@ -93,19 +95,20 @@ if (! $bogus) {
     $connected = 1;
     $pwd = int (10000. * rand) . "-" . int (10000. * rand);
     $special_sauce = int (10000. * rand) . "-" . int (10000. * rand);
+    $hash = Digest::SHA::sha1_base64($pwd."theassayer");
 }
 if (! $bogus) {
   $insertstmt = "INSERT INTO
   users (
     login,
-    pwd,
+    pwd_hash,
     email,
     special_sauce,
     real_name
   )
   VALUES (
     \'$login\',
-    \'$pwd\',
+    \'$hash\',
     \'$email\',
     \'$special_sauce\',
     \'$realname\'
@@ -168,4 +171,3 @@ if (!$bogus && $connected) {
 if ($connected) {
   $dbh->disconnect;
 }
-

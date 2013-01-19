@@ -2,7 +2,7 @@
 @uinfo_order = (
 	id	,
 	login ,
-	pwd	 ,
+	pwd_hash	 ,
 	email ,
 	special_sauce ,
 	real_name ,
@@ -15,7 +15,7 @@
 %uinfo_name = (
 	id				=> "user number",
 	login			=> "login name",
-	pwd				=> "password",
+	pwd_hash				=> "password",
 	email			=> "real e-mail",
 	special_sauce	=> "special sauce",
 	real_name		=> "real name",
@@ -28,7 +28,7 @@
 %uinfo_private = (
 	id				=> "0",
 	login			=> "0",
-	pwd				=> "1",
+	pwd_hash				=> "1",
 	email			=> "1",
 	special_sauce	=> "1",
 	real_name		=> "0",
@@ -41,7 +41,7 @@
 %uinfo_optional = (
 	id				=> "0",
 	login			=> "0",
-	pwd				=> "0",
+	pwd_hash				=> "0",
 	email			=> "0",
 	special_sauce	=> "0",
 	real_name		=> "0",
@@ -54,7 +54,7 @@
 %uinfo_change_normal_way = (
 	id				=> "0",
 	login			=> "0",
-	pwd				=> "0",
+	pwd_hash				=> "0",
 	email			=> "1",
 	special_sauce	=> "0",
 	real_name		=> "1",
@@ -67,7 +67,7 @@
 %uinfo_long = (
 	id				=> "0",
 	login			=> "0",
-	pwd				=> "0",
+	pwd_hash				=> "0",
 	email			=> "0",
 	special_sauce	=> "0",
 	real_name		=> "0",
@@ -80,7 +80,7 @@
 %uinfo_html_ok = (
 	id				=> "0",
 	login			=> "0",
-	pwd				=> "0",
+	pwd_hash				=> "0",
 	email			=> "0",
 	special_sauce	=> "0",
 	real_name		=> "0",
@@ -93,7 +93,7 @@
 %uinfo_instructions = (
 	id				=> "",
 	login			=> "",
-	pwd				=> "",
+	pwd_hash				=> "",
 	email			=> "",
 	special_sauce	=> "",
 	real_name		=> "",
@@ -104,4 +104,3 @@
 );
 
 return 1;
-

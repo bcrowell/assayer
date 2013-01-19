@@ -14,6 +14,8 @@ require "asgetmethod.pl";
 require "asinstallation.pl";
 require "asdbutil.pl";
 
+use Digest::SHA;
+
 $title = "The Assayer: Log In";
 
 use CGI;
@@ -25,6 +27,7 @@ $co = new CGI;
 
 $login = $co->param('login');
 $pwd = $co->param('pwd');
+$hash = Digest::SHA::sha1_base64($pwd."theassayer");
 
 %query_hash = decode_query_hash();
 if (exists($query_hash{"x"})) {
@@ -48,8 +51,8 @@ if (! $bogus) {
     $connected = 1;
 }
 if (! $bogus) {
-  $selectstmt = "SELECT login,pwd,special_sauce FROM users WHERE login LIKE "
-  	. $dbh->quote($login) . " AND pwd LIKE " . $dbh->quote($pwd);
+  $selectstmt = "SELECT login,pwd_hash,special_sauce FROM users WHERE login LIKE "
+  	. $dbh->quote($login) . " AND pwd_hash LIKE " . $dbh->quote($hash);
   $sth = $dbh->prepare($selectstmt) or $bogus=4;
 }
 if (! $bogus) {
