@@ -51,8 +51,8 @@ if (! $bogus) {
     $connected = 1;
 }
 if (! $bogus) {
-  $selectstmt = "SELECT login,pwd_hash,special_sauce FROM users WHERE login LIKE "
-  	. $dbh->quote($login) . " AND pwd_hash LIKE " . $dbh->quote($hash);
+  $selectstmt = "SELECT login,pwd_hash,special_sauce FROM users WHERE login = "
+  	. $dbh->quote($login) . " AND pwd_hash = " . $dbh->quote($hash);
   $sth = $dbh->prepare($selectstmt) or $bogus=4;
 }
 if (! $bogus) {

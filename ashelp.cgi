@@ -422,7 +422,7 @@ return <<HELPPAGE;
     
 	<a name="tech"><h2>Technical and Design Stuff</h2>
 	<h3>Is the software open source?</h3>
-	Yes: <a href="http://www.theassayer.org/assayer.tar.gz">assayer.tar.gz</a>
+        <a href="https://github.com/bcrowell/assayer">Yes.</a>
 	<h3>How are you going to maintain a reliable, accurate catalog?</h3>
 	There are provisions in the database design for fixing cases where two people
 	create two different book records for the same book using slightly different
