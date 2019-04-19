@@ -128,7 +128,7 @@ if (! $bogus) {
 	## Button to review a new book by this author.
 	###################################################
 	print 
-	$co->startform(
+	$co->start_form(
 		-method=>'POST',
 		-action=>"$cgi_full_path/asreview2.cgi");
 	
@@ -145,7 +145,7 @@ if (! $bogus) {
 	   . $co->submit(-name=>'Add Book') . "<p>\n";
 	
 			
-	print	$co->endform;
+	print	$co->end_form;
 	
 	###################################################
 	## List books by this author.

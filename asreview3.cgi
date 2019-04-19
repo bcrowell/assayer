@@ -237,10 +237,10 @@ if ($do_what<3) {
                         . " relationship with the author or publisher.";
         
             if (!$debug) {
-              print $co->startform( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi");
+              print $co->start_form( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi");
             }
             else {
-              print $co->startform( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi?debug=true");
+              print $co->start_form( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi?debug=true");
             }
                         
                         
@@ -318,7 +318,7 @@ if ($do_what<3) {
         if ($lccclass ne "") {print          $co->hidden(-name=>'lccclass',-default=>"$lccclass",-override=>1);}
         if ($lccsubclass ne "") {print          $co->hidden(-name=>'lccsubclass',-default=>"$lccsubclass",-override=>1);}
 
-        print        $co->endform;
+        print        $co->end_form;
         }
         if ($bogus) {
           print "Error: $bogus<p>\n";

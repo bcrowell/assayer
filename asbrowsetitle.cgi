@@ -89,7 +89,7 @@ if (! $bogus) {
 	print "<br>\n";
   }
 
-	print  $co->startform(-method=>'POST',-action=>"$cgi_full_path/asbrowsetitle.cgi") . "\n";
+	print  $co->start_form(-method=>'POST',-action=>"$cgi_full_path/asbrowsetitle.cgi") . "\n";
 	
 	print "<table><tr><td bgcolor=\"#dddddd\">Title</td>"
 	   .  "<td>" . $co->textfield(-name=>'search',-value=>$search,-size=>20,-maxlength=>30) . "</td>"
@@ -103,7 +103,7 @@ if (! $bogus) {
 		  -labels=>\%describe_freedom
 		) . "</td></tr></table>\n"
 	.	$co->submit(-name=>'submit',-value=>'Submit')
-	.	$co->endform;
+	.	$co->end_form;
 
 if ($do_it) {
 	if (! $bogus) {

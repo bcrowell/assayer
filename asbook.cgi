@@ -186,7 +186,7 @@ if (! $bogus) {
     }
 	if ($url ne "" && $freedom>=2) {
 	  print "<tr><td bgcolor=\"#dddddd\">Read</td><td colspan=\"3\">\n"
-	  	. $co->startform(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id")
+	  	. $co->start_form(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id")
 	  	. "<a href=\"$url\">$url</a>";
 	  if ($url_ok eq "0" || $url_ok eq "1") {
 	    print "<br>\nThis link was reported to be ";
@@ -206,7 +206,7 @@ if (! $bogus) {
 	    if ($url_ok ne "1") {
 			print	" " . $co->submit(-name=>'not broken',-value=>'not broken');
 	    }
-	    print	$co->endform;
+	    print	$co->end_form;
 	    print "</td></tr>";
 	  }
 	} 
@@ -236,17 +236,17 @@ if (! $bogus) {
 		if ($activate ne "") {activate_notification($dbh,$reader_id,$bkref_id,$bk_refs_sql_clause);}
 		$notify_sauce = notification_is_activated($dbh,$reader_id,$bk_refs_sql_clause);
 		if ($notify_sauce) {
-		    print $co->startform(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id");
+		    print $co->start_form(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id");
 			print "You are currently receiving e-mail notifications whenever this book is discussed.<br>";
 			print "Press this button to deactivate notification for this book: ";
 			print	$co->submit(-name=>'Deactivate',-value=>'Deactivate');
-			print	$co->endform;
+			print	$co->end_form;
 		}
 		else {
-		    print $co->startform(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id");
+		    print $co->start_form(-method=>'POST',-action=>"$cgi_full_path/asbook.cgi?book=$bkref_id");
 			print "Press this button to receive e-mail notifications whenever this book is discussed: ";
 			print	$co->submit(-name=>'Activate',-value=>'Activate');
-			print	$co->endform;
+			print	$co->end_form;
 		}
 	}
 	print "</td></tr>\n";
@@ -403,7 +403,7 @@ sub display_review()
 sub review_button()
 {
 	my ($co,$auref1,$bkref_id,$book_title,$parent_review,$last1,$first1,$suffix1) = @_;
-	return  $co->startform( -method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
+	return  $co->start_form( -method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
 	. $co->hidden(-name=>'auref1',-default=>"$auref1",-override=>1)
 	. 	$co->hidden(-name=>'bkref',-default=>"$bkref_id",-override=>1)
 	. 	$co->hidden(-name=>'title',-default=>"$book_title",-override=>1)
@@ -413,7 +413,7 @@ sub review_button()
 	. 	$co->hidden(-name=>'suffix1',-default=>"$suffix1",-override=>1)
 	. "Click on this button to add your own review of this book: "
 	. $co->submit(-name=>'Add Review') . "<p>\n"
-	. $co->endform;
+	. $co->end_form;
 }
 
 ##########################################################################################
@@ -423,7 +423,7 @@ sub revise_button()
 	my ($co,$auref1,$bkref_id,$book_title,$parent_review,$last1,$first1,$suffix1,
     	$latest_subj,$latest_text,$license,$score_content,$score_writing
 		) = @_;
-    return  $co->startform(-method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
+    return  $co->start_form(-method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
 	.	"You can revise this review, but the earlier versions will still be in the "
 	.   "database: " . $co->submit(-name=>'submit',-value=>'Revise')
 	. 	$co->hidden(-name=>'last1',-default=>"$last1",-override=>1)
@@ -439,7 +439,7 @@ sub revise_button()
 	. 	$co->hidden(-name=>'revising',-default=>"1",-override=>1)
 	. 	$co->hidden(-name=>'content',-default=>"$score_content",-override=>1)
 	. 	$co->hidden(-name=>'writing',-default=>"$score_writing",-override=>1)
-	.   $co->endform;
+	.   $co->end_form;
 }
 
 ##########################################################################################
@@ -448,7 +448,7 @@ sub reply_button()
 	{
 		my ($co,$auref1,$bkref_id,$book_title,$review_id,$last1,$first1,$suffix1,
 		    	$latest_subj,$license,$score_content,$score_writing) = @_;
-		return $co->startform(-method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
+		return $co->start_form(-method=>'POST', -action=>"$cgi_full_path/asreview3.cgi")
 		. "Write a comment in reply to this review: " . $co->submit(-name=>'submit',-value=>'Reply')
 		. 	$co->hidden(-name=>'last1',-default=>"$last1",-override=>1)
 		. 	$co->hidden(-name=>'first1',-default=>"$first1",-override=>1)
@@ -463,7 +463,7 @@ sub reply_button()
 		. 	$co->hidden(-name=>'revising',-default=>"0",-override=>1)
 		. 	$co->hidden(-name=>'content',-default=>"",-override=>1)
 		. 	$co->hidden(-name=>'writing',-default=>"",-override=>1)
-		. $co->endform;
+		. $co->end_form;
 	}
 
 ##########################################################################################

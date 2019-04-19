@@ -176,7 +176,7 @@ if (! $bogus) {
 #################################################################
 if (! $bogus) {
 	print "<h2>Change user info:</h2>";
-	print  $co->startform(-method=>'POST',-action=>"$cgi_full_path/aschangeuserinfo.cgi");
+	print  $co->start_form(-method=>'POST',-action=>"$cgi_full_path/aschangeuserinfo.cgi");
 	print "<table>\n";
 	foreach $uinfo_key(@uinfo_order) {
 	    if ($uinfo_change_normal_way{$uinfo_key}) {
@@ -204,7 +204,7 @@ if (! $bogus) {
 	print  	$co->hidden(-name=>'login',-default=>"$login",-override=>1);
 	print  	$co->hidden(-name=>'pwd',-default=>"$pwd",-override=>1);
   	print	$co->submit(-name=>'submit',-value=>'change');
-	print	$co->endform;
+	print	$co->end_form;
 }
 
 if ($bogus) {

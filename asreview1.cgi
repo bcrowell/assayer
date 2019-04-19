@@ -72,7 +72,7 @@ sub do1($$$$$$$)
 {
 	my ($co,$homepath,$n,$last_ref,$first_ref,$suffix_ref,$auref_ref) = @_;
 	my $bogus = 0;
-    print $co->startform( -method=>'POST',
+    print $co->start_form( -method=>'POST',
 		-action=>($cgi_full_path . "/" . $who_am_i));
 	print completed_authors($co,$n-1,$last_ref,$first_ref,$suffix_ref,$auref_ref,"",0);
 	print "<b>" . ordinal($n,1) . " author:</b><br>\n";
@@ -81,7 +81,7 @@ sub do1($$$$$$$)
 	print	$co->submit(-name=>'Continue');
 	print  	$co->hidden(-name=>'what',-default=>"2",-override=>1);
 	print  	$co->hidden(-name=>'n',-default=>$n,-override=>1);
-	print	$co->endform;
+	print	$co->end_form;
 	print guidelines();
 	return $bogus;
 }
@@ -119,13 +119,13 @@ sub do2($$$$$$$$)
 		print "<table><tr><td width=\"245\" bgcolor=\"#dddddd\">Finish entering the author's name</td>\n";
 		print "<td width=\"8\"><b>OR</b></td><td width=\"245\" bgcolor=\"#dddddd\">select an author who is already in the database</td></tr>\n";
 	    print "<tr><td valign=\"top\">\n";
-	    print $co->startform( -method=>'POST',
+	    print $co->start_form( -method=>'POST',
 			-action=>($cgi_full_path . "/" . $who_am_i));
 		print completed_authors($co,$n,$last_ref,$first_ref,$suffix_ref,$auref_ref,$search,0);
 		print	$co->submit(-name=>"submit",-value=>"submit");
 		print  	$co->hidden(-name=>'what',-default=>"3",-override=>1);
 	    print  	$co->hidden(-name=>'n',-default=>$n,-override=>1);
-		print	$co->endform;
+		print	$co->end_form;
 		
 	    print "</td><td></td><td valign=\"top\">\n";
 		
@@ -145,7 +145,7 @@ sub do2($$$$$$$$)
 		    ++$count;
 		    $au_ref = $row2[0];
 		    $o = ordinal($n,0);
-	        print $co->startform( -method=>'POST',-action=>($cgi_full_path . "/" . $who_am_i));
+	        print $co->start_form( -method=>'POST',-action=>($cgi_full_path . "/" . $who_am_i));
 		    print completed_authors($co,$n-1,$last_ref,$first_ref,$suffix_ref,$auref_ref,"",1);
 	  	    print $co->hidden(-name=>"last$n",-default=>$last,-override=>1) . "\n";
 		  	print $co->hidden(-name=>"first$n",-default=>$first,-override=>1) . "\n";
@@ -154,7 +154,7 @@ sub do2($$$$$$$$)
 		    print	$co->submit(-name=>"submit",-value=>"Author #$au_ref") . "<br>\n";
 			print  	$co->hidden(-name=>'what',-default=>"3",-override=>1);
 		    print  	$co->hidden(-name=>'n',-default=>$n,-override=>1);
-			print	$co->endform;
+			print	$co->end_form;
 		  }
 		}
 		if (!$count) {
@@ -180,22 +180,22 @@ sub do3($$$$$$$)
 	my ($co,$homepath,$n,$last_ref,$first_ref,$suffix_ref,$auref_ref) = @_;
 	my $bogus = 0;
 	
-    print $co->startform( -method=>'POST',
+    print $co->start_form( -method=>'POST',
 		-action=>($cgi_full_path . "/asreview2.cgi") );
 	print completed_authors($co,$n,$last_ref,$first_ref,$suffix_ref,$auref_ref,"",0);
 	print	$co->submit(-name=>'Done');
 	print  	$co->hidden(-name=>'n',-default=>$n,-override=>1);
-	print	$co->endform;
+	print	$co->end_form;
 	
 	if ($n+1<=$max_authors) {
-		print $co->startform( -method=>'POST',
+		print $co->start_form( -method=>'POST',
 				-action=>($cgi_full_path . "/" . $who_am_i));
 		print completed_authors($co,$n,$last_ref,$first_ref,$suffix_ref,$auref_ref,"",1);
 		print  	$co->hidden(-name=>'what',-default=>"1",-override=>1);
 		$o = ordinal($n+1,0);
 		print	$co->submit(-name=>"Add a $o author");
 		print  	$co->hidden(-name=>'n',-default=>($n+1),-override=>1);
-		print	$co->endform;
+		print	$co->end_form;
 	}
 	
 	return $bogus;

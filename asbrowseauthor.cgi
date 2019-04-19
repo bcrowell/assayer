@@ -61,13 +61,13 @@ if (! $bogus) {
   
   }
 
-	  print  $co->startform(-method=>'POST',-action=>"$cgi_full_path/asbrowseauthor.cgi") . "\n";
+	  print  $co->start_form(-method=>'POST',-action=>"$cgi_full_path/asbrowseauthor.cgi") . "\n";
 	
 	print "Enter one or more letters from the beginning of the author's last name,<br> or leave this space blank to view the "
 	   . "entire list of authors.<br>\n"
 	   .  $co->textfield(-name=>'search',-value=>$search,-size=>20,-maxlength=>30) 
 	.	$co->submit(-name=>'submit',-value=>'Submit')
-	.	$co->endform;
+	.	$co->end_form;
 
 if ($do_it) {
 	if (! $bogus) {

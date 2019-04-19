@@ -32,7 +32,7 @@ print "Please enter the same e-mail address you used when you registered as a me
 print "username and password will be e-mailed to you at that address.<p>";
 
 print 
-	$co->startform(
+	$co->start_form(
 		-method=>'POST',
 		-action=>"$cgi_full_path/asforgot2.cgi");
 		
@@ -41,7 +41,7 @@ print "E-mail: " . $co->textfield(-name=>'email',-value=>'',-size=>50) . "<p>";
 print	$co->submit(-name=>'Submit');
 
 		
-print	$co->endform;
+print	$co->end_form;
 
 print "<p/>The <i>Home</i> link above will take you back to The Assayer's home page.<p>\n";
 &PrintFooterHTML($homepath);

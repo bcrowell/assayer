@@ -53,7 +53,7 @@ for ($k=0; $k<$n; $k++) {
   print  "<br>\n";
 }
 
-    print  $co->startform( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi");
+    print  $co->start_form( -method=>'POST',-action=>"$cgi_full_path/asreview3.cgi");
 		
 		
 
@@ -101,7 +101,7 @@ print $co->hidden(-name=>'n',-default=>$n,-override=>1);
 print  	$co->hidden(-name=>'bkref',-default=>"$bkref",-override=>1);
 print  	$co->hidden(-name=>'parent_review',-default=>"",-override=>1);
 		
-print	$co->endform;
+print	$co->end_form;
 }
 if ($bogus) {
   print "Error: $bogus<p>\n";

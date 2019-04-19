@@ -112,11 +112,11 @@ else {
 ###################################################
 if (!$bogus) {
 	if (!$debug) {
-	  print  $co->startform(-method=>'POST',
+	  print  $co->start_form(-method=>'POST',
 	    		-action=>"$cgi_full_path/asredirectau.cgi") . "\n";
 	}
 	else {
-	  print  $co->startform(-method=>'POST',
+	  print  $co->start_form(-method=>'POST',
 	    		-action=>"$cgi_full_path/asredirectau.cgi?debug=true") . "\n";
 	}
 	print "step $do_what<p>\n";
@@ -138,7 +138,7 @@ if (!$bogus) {
 	  print	$co->submit(-name=>'submit',-value=>'1');
 	}
 	
-	print	$co->endform;
+	print	$co->end_form;
 }
 
 ###################################################

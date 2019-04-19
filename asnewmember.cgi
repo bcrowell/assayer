@@ -28,7 +28,7 @@ PrintBannerHTML($homepath);
 
 print "<h1>New Member</h1>\n";
     print 
-	$co->startform(
+	$co->start_form(
 		-method=>'POST',
 		-action=>"$cgi_full_path/asnewmember2.cgi");
 		
@@ -55,6 +55,6 @@ print "e-mail unless you request it, or as required in order to maintain your ac
 print	$co->submit(-name=>'Submit');
 
 		
-print	$co->endform;
+print	$co->end_form;
 
 &PrintFooterHTML($homepath);

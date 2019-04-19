@@ -276,7 +276,7 @@ if (!$bogus) {
 ## Form for editing
 ###################################################
 if (!$bogus) {
-	print  $co->startform(-method=>'POST',
+	print  $co->start_form(-method=>'POST',
 	    		-action=>"$cgi_full_path/aseditbook.cgi?book=$bkref_id") . "\n";
 
 	print "<table>\n";
@@ -342,7 +342,7 @@ if (!$bogus) {
 						
 	print	$co->submit(-name=>'submit',-value=>'Submit');
 	
-	print	$co->endform;
+	print	$co->end_form;
 }
 
 if ($bogus && !$did_header_stuff) {

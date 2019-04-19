@@ -85,7 +85,7 @@ if (! $bogus) {
 	
 	print "<h2>Changing your password</h2>\n";
 	print 
-		$co->startform(
+		$co->start_form(
 			-method=>'POST',
 			-action=>"$cgi_full_path/aschangeuserinfo.cgi");
 			
@@ -97,11 +97,11 @@ if (! $bogus) {
 	print	$co->submit(-name=>'Change Password');
 	
 			
-	print	$co->endform;
+	print	$co->end_form;
 
 	print "<h2>Changing other user information</h2>\n";
 	print 
-		$co->startform(
+		$co->start_form(
 			-method=>'POST',
 			-action=>"$cgi_full_path/aschangeuserinfo.cgi");
 			

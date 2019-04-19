@@ -96,11 +96,11 @@ if (! $bogus) {
 ###################################################
 if (!$bogus) {
 	if (!$debug) {
-	  print  $co->startform(-method=>'POST',
+	  print  $co->start_form(-method=>'POST',
 	    		-action=>"$cgi_full_path/asaddauthor.cgi") . "\n";
 	}
 	else {
-	  print  $co->startform(-method=>'POST',
+	  print  $co->start_form(-method=>'POST',
 	    		-action=>"$cgi_full_path/asaddauthor.cgi?debug=true") . "\n";
 	}
 	
@@ -118,7 +118,7 @@ if (!$bogus) {
 						
 	print	$co->submit(-name=>'submit',-value=>'Submit');
 	
-	print	$co->endform;
+	print	$co->end_form;
 }
 	if (!$bogus && $last ne "" && $user_id) {
 		#########################################################

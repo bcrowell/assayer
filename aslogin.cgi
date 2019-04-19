@@ -48,7 +48,7 @@ if (! $bogus) {
   }
 
 print 
-	$co->startform(-method=>'POST',-action=>"$cgi_full_path/aslogin2.cgi$try_x_version");
+	$co->start_form(-method=>'POST',-action=>"$cgi_full_path/aslogin2.cgi$try_x_version");
 		
 print "Login name: " . $co->textfield(-name=>'login',-value=>'') . "<br>";
 
@@ -61,6 +61,6 @@ print	$co->submit(-name=>'Log In');
 print "<p>Don't have an account? <a href=\"asnewmember.cgi\">Click here</a> to get one!<p>\n";
 print "If you've forgotten your username or password, <a href=\"asforgot.cgi\">click here</a>.<p>\n";
 		
-print	$co->endform;
+print	$co->end_form;
 
 &PrintFooterHTML($homepath);
