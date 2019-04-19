@@ -1,4 +1,4 @@
-require "asdbutil.pl";
+require "./asdbutil.pl";
 
 sub help_link {
   my $homepath = shift;

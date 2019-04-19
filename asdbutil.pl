@@ -1,7 +1,7 @@
 use CGI;
 use DBI;
 
-require "db_password.pl";
+require "./db_password.pl";
 
 sub count_reviews_html($$)
 {

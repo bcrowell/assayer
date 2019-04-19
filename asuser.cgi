@@ -6,14 +6,14 @@
 #####################################################################
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
 
-require "ashtmlutil.pl";
-require "asdbutil.pl";
-require "asgetmethod.pl";
-require "asinstallation.pl";
-require "asuinfo.pl";
+require "./ashtmlutil.pl";
+require "./asdbutil.pl";
+require "./asgetmethod.pl";
+require "./asinstallation.pl";
+require "./asuinfo.pl";
 
 use Digest::SHA;
 

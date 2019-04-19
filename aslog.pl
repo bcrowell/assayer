@@ -1,7 +1,7 @@
 use DBI;
 
-require "asdbutil.pl";
-require "db_password.pl";
+require "./asdbutil.pl";
+require "./db_password.pl";
 
 #    CREATE TABLE log_tbl (
 # 	  user_id INTEGER NOT NULL,

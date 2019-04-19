@@ -6,15 +6,15 @@
 #####################################################################
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
 
-require "ashtmlutil.pl";
-require "asdbutil.pl";
-require "asgetmethod.pl";
-require "asinstallation.pl";
-require "asuinfo.pl";
-require "aslog.pl";
+require "./ashtmlutil.pl";
+require "./asdbutil.pl";
+require "./asgetmethod.pl";
+require "./asinstallation.pl";
+require "./asuinfo.pl";
+require "./aslog.pl";
 
 use CGI;
 use DBI;
@@ -215,7 +215,7 @@ sub get_latest_from_log {
 
 sub homepage_html {
 return <<HOMEPAGE;
-<p/>	<table width="1000"><tr><td valign="top" width="390">
+<p>	<table width="1000"><tr><td valign="top" width="390">
 	<h2>Welcome</h2>
     The Assayer is the web's largest catalog of books whose authors have made them available for free. Users can also submit reviews.
     The site has been around since 2000, and is a particularly good place to find free books about math, science, and computers.
@@ -236,6 +236,20 @@ return <<HOMEPAGE;
 	Click on the <i>Help</i> link above for more detailed information on the purpose of The Assayer and
 	how to use it.
 </td><td>
+<h2>UC Davis Group to Create Free Texts</h2>
+<p>
+The LA Times <a href="http://www.latimes.com/local/education/la-me-college-texts-20140901-story.html">reports</a>
+that a group at UC Davis, led by chemistry professor <a href="http://larsenlab.ucdavis.edu/">Delmar Larsen</a>, has an
+ambitious plan to produce half a dozen free and open-source wiki-based math and science textbooks.
+</p>
+                       <p align="right"><i>September 2, 2014</i></p>
+<h2>California Open Educational Resources Council Starts Up</h2>
+<p>
+Two years ago, the California state legislature passed two bills to fund the development of 50 free college
+textbooks by 2013. The faculty council for the initiative now has a <a href="http://icas-ca.org/coerc">web page</a>.
+The initial goal was clearly not realistic, and has now been downsized and delayed.
+</p>
+                       <p align="right"><i>September 2, 2014</i></p>
 <h2>Brown Signs California Bill for Free Textbooks</h2>
 <p>
 California Governor Jerry Brown has

@@ -6,12 +6,12 @@
 #####################################################################
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
 
-require "ashtmlutil.pl";
+require "./ashtmlutil.pl";
 
-require "asinstallation.pl";
+require "./asinstallation.pl";
 PrintHTTPHeader();
 
 $title = "The Assayer: New Member";

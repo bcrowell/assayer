@@ -6,13 +6,13 @@
 #####################################################################
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
 
-require "ashtmlutil.pl";
-require "asdbutil.pl";
-require "asfreedom.pl";
-require "asinstallation.pl";
+require "./ashtmlutil.pl";
+require "./asdbutil.pl";
+require "./asfreedom.pl";
+require "./asinstallation.pl";
 PrintHTTPHeader();
 
 $pagetitle = "The Assayer: Add a Review: Step 2";

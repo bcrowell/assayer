@@ -7,15 +7,15 @@
 # Bug: Doesn't handle parent_review when revising or looking at multiple versions...argh!!!
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
 
-require "ashtmlutil.pl";
-require "asdbutil.pl";
-require "asinstallation.pl";
-require "asgetmethod.pl";
-require "asnotifyutil.pl";
-require "aslog.pl";
+require "./ashtmlutil.pl";
+require "./asdbutil.pl";
+require "./asinstallation.pl";
+require "./asgetmethod.pl";
+require "./asnotifyutil.pl";
+require "./aslog.pl";
 
 PrintHTTPHeader();
 

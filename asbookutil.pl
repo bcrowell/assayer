@@ -1,8 +1,8 @@
-require "asdbutil.pl";
-require "asinstallation.pl";
-require "ashtmlutil.pl";
-require "asfreedom.pl";
-require "asnotifyutil.pl";
+require "./asdbutil.pl";
+require "./asinstallation.pl";
+require "./ashtmlutil.pl";
+require "./asfreedom.pl";
+require "./asnotifyutil.pl";
 
 sub display_book($$$$)
 	{

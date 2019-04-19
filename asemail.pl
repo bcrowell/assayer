@@ -1,6 +1,6 @@
 
-require "asdbutil.pl";
-#require "asinstallation.pl";
+require "./asdbutil.pl";
+#require "./asinstallation.pl";
 
 sub send_email {
   my %args = (

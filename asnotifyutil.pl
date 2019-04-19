@@ -1,8 +1,8 @@
 use CGI;
 use DBI;
 
-require "asdbutil.pl";
-require "asinstallation.pl";
+require "./asdbutil.pl";
+require "./asinstallation.pl";
 
 # 	  user_id INTEGER NOT NULL,
 # 	  bkref_id INTEGER NOT NULL,

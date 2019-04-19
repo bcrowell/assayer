@@ -8,15 +8,15 @@
 # that aren't integers
 
 #$| = 1; # Set output to flush directly (for troubleshooting)
-require "cgi-lib.pl";
+require "./cgi-lib.pl";
 
-require "ashtmlutil.pl";
-require "asdbutil.pl";
-require "aslog.pl";
-require "asloc.pl";
-require "asfreedom.pl";
-require "asinstallation.pl";
-require "asgetmethod.pl";
+require "./ashtmlutil.pl";
+require "./asdbutil.pl";
+require "./aslog.pl";
+require "./asloc.pl";
+require "./asfreedom.pl";
+require "./asinstallation.pl";
+require "./asgetmethod.pl";
 
 PrintHTTPHeader();
 
