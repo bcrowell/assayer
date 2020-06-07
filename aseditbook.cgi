@@ -114,7 +114,7 @@ if (!$bogus) {
 ## Update database.
 ###################################################
 if ($bk_id =~ m/[^0-9]/) {$bogus = "Book number contains illegal characters.";}
-if ($do_what==2 && ($new_url ne '' && !($new_url =~ m@^(http|ftp)://@))) {$bogus = "Invalid URL."}
+if ($do_what==2 && ($new_url ne '' && !($new_url =~ m@^(http|https|ftp)://@))) {$bogus = "Invalid URL."}
 if ($do_what==2 && !$bogus) {
   if ($new_book_title ne $book_title) {
     $describe_changes = $describe_changes . "Changed title from $book_title to $new_book_title.";
