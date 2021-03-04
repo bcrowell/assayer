@@ -27,6 +27,12 @@ PrintHeaderHTML($homepath,$title);
 PrintBannerHTML($homepath);
 
 print "<h1>New Member</h1>\n";
+
+if (0) {
+print "Sorry, creation of new accounts is disabled right now.";
+}
+else {
+
     print 
 	$co->start_form(
 		-method=>'POST',
@@ -56,5 +62,6 @@ print	$co->submit(-name=>'Submit');
 
 		
 print	$co->end_form;
+}
 
 &PrintFooterHTML($homepath);

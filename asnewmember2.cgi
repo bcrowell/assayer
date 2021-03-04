@@ -133,11 +133,9 @@ if (! $bogus) {
     send_email(TO=>$email,REASON=>'asked to become a member',SUBJECT=>'Assayer membership',
              BODY=><<__BODY__
 Welcome to The Assayer! We suggest that you log in at
-	   http://theassayer.org
+	   https://theassayer.org
 using the login name and password shown below, and
-change your password to something else. Do not use a
-valuable password, since it will be transmitted over
-connections that are not secure.
+change your password to something else.
 	
 Login name: $login
 Password:   $pwd

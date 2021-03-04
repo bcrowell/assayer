@@ -58,7 +58,7 @@ print "Password: <INPUT TYPE=\"PASSWORD\" NAME=\"pwd\" SIZE=\"12\" MAXLENGTH=\"1
 
 print	$co->submit(-name=>'Log In');
 
-print "<p>Don't have an account? <a href=\"asnewmember.cgi\">Click here</a> to get one!<p>\n";
+print "<p>Don't have an account? <a href=\"https://www.theassayer.org/cgi-bin/asnewmember.cgi\">Click here</a> to get one!<p>\n";
 print "If you've forgotten your username or password, <a href=\"asforgot.cgi\">click here</a>.<p>\n";
 		
 print	$co->end_form;

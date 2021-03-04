@@ -1,7 +1,7 @@
 #$homepath = "http://64.33.110.96";
 #$cgi_full_path = "http://64.33.110.96/cgi-bin";
-$homepath = "http://www.theassayer.org";
-$cgi_full_path = "http://www.theassayer.org/cgi-bin";
+$homepath = "https://www.theassayer.org";
+$cgi_full_path = "https://www.theassayer.org/cgi-bin";
 $dsn = "DBI:mysql:assayer:localhost:3306";
 $db_user = "theassayer";
 $titlebgcolor = "#cccccc";
